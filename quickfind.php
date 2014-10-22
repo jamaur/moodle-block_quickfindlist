@@ -48,7 +48,7 @@ if (isloggedin() && has_capability('block/quickfindlist:use', $context) && confi
         if (is_numeric($name)) {
             $where = "WHERE deleted = 0 AND idnumber LIKE ? ";
         } else {
-            $where = "WHERE deleted = 0 AND " . $DB->sql_concat('firstname', 'lastname') . " LIKE ? ";
+            $where = "WHERE deleted = 0 AND " . $DB->sql_concat_join("' '", array('firstname', 'lastname', 'username')) . " LIKE ? ";
         }
         if ($role != -1) {
             $params[] = $role;
