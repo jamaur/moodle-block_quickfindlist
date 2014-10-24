@@ -62,7 +62,7 @@ M.block_quickfindlist = {
                         var userstring = instance.userfields.replace('[[firstname]]', response.people[p].firstname);
                         userstring = userstring.replace('[[lastname]]', response.people[p].lastname);
                         userstring = userstring.replace('[[username]]', response.people[p].username);
-                        li = Y.Node.create('<li><a href="'+instance.url+'&id='+response.people[p].id+'">'+userstring+'</a></li>');
+                        li = Y.Node.create('<li><a href="'+instance.url+'&id='+response.people[p].id+'">'+userstring+'</a> (<a href="/course/loginas.php?id=1&user='+response.people[p].id+'&sesskey='+this.sesskey+'">Log in as</a>)</li>');
                         list.appendChild(li);
                     }
                     instance.progress.setStyle('visibility', 'hidden');
